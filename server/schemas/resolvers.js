@@ -20,5 +20,6 @@ const resolvers = {
         return comments;
     },
     
-    }
-}
+    },
+};
+module.exports = resolvers;
