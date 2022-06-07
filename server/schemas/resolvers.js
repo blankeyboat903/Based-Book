@@ -11,14 +11,6 @@ const resolvers = {
     },
 
     mutation: {
-        login: async (_, { email }, { dataSources }) => {
-            const user = await dataSources.userAPI.findOrCreateUser({ email });
-            if (user) {
-              user.token = Buffer.from(email).toString('base64');
-              return user;
-            }
-          },
-        },
        createMeme: async (parent, args) => {
            const meme = await Meme.create(args);
            return meme;
@@ -27,7 +19,14 @@ const resolvers = {
         const comments = await Comments.create(args);
         return comments;
     },
+    login: async (_, { email }, { dataSources }) => {
+                    const user = await dataSources.userAPI.findOrCreateUser({ email });
+                    if (user) {
+                      user.token = Buffer.from(email).toString('base64');
+                      return user;
+                    }
+    }    
     
-},
-
+    },
+};
 module.exports = resolvers;
