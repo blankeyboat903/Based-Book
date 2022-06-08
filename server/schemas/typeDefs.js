@@ -2,24 +2,26 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type Meme {
-        _id: ID!
+        _id: ID
         Image: String!
     }
 
     type Comment {
-        _id: ID!
+        _id: ID
         comment: String!
     }
 
     type Query {
-       memes: [Meme]
-       comments: [Comment]
-       comments(id: ID!): [Comments]
+       meme: [Meme]!
+       comments: [Comment]!
+       comments(id: ID!): Comments
     }
 
     type Mutation {
         createMeme(image: String!): Meme
-        createComment(name: String!, comment: String!): [Comments]
+        createComment(name: String!, comment: String!): Comments
+        login(email: String!, password: String!)
     }
-`
-module.export = typeDefs
+`;
+
+module.export = typeDefs;
