@@ -21,4 +21,6 @@ const typeDefs = gql`
         createMeme(image: String!): Meme
         createComment(name: String!, comment: String!): Comments
     }
-`
+`;
+
+module.exports = typeDefs;
