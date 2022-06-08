@@ -2,8 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const memeSchema = new Schema({
     Image: {
-        data: Buffer,
-        type: String,
+        type: Image,
         required: true,
     }
 });
