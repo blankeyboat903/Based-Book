@@ -14,9 +14,12 @@ mongoose.connect(process.env.MONGO_URL,
 
 function App() {
   return (
-    <div className="bucket-app">
-      <BucketList />
-    </div>
+    <CloudinaryContext cloudName="girthycloud">
+  <div>
+    <Image publicId="sample" width="50" />
+  </div>
+  <Image publicId="sample" width="0.5" />
+</CloudinaryContext>
   );
 }
 
