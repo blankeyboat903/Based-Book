@@ -1,7 +1,7 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
-
+const mongoose = require('mongoose');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
@@ -20,6 +20,8 @@ cloudinary.config({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+mongoose.connect('mongodb')
 
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static(path.join(__dirname, '../client/build')));
