@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const memeSchema = new Schema({
-    Image: {
+    image: {
         type: String,
         required: true,
     }
