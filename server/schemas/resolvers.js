@@ -16,32 +16,62 @@ const resolvers = {
   },
 
   Mutation: {
-    createMeme: async (parent, {image}) => {
-      const meme = await Meme.create({image});
-      return meme;
+
+    addUser: async (parent, { username, email, password }) => {
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
+        return { token, user };
+      },
+      login: async (parent, { email, password }) => {
+        const user = await User.findOne({ email });
+  
+        if (!user) {
+          throw new AuthenticationError('No user found with this email address');
+        }
+  
+        const correctPw = await user.isCorrectPassword(password);
+  
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+  
+        const token = signToken(user);
+  
+        return { token, user };
+      },
+    addMeme: async (parent, {image}, context) => {
+        if (context.user) {
+            const meme = await Meme.create({
+                Image
+            });
+
+            await User.findOneAndUpdate(
+                {_id: context.user._id},
+                {$addtoSet: { meme: meme._id}}
+            );
+            return meme;
+        }
+        throw new AuthenticationError('You need to be logged in!');
     },
-    createComment: async (parent, {name, comment}) => {
-      const comments = await Comment.create({name, comment});
-      return comments;
+    
+    addComment: async (parent, {name, commentText}, context) => {
+        if (context.user) {
+            return Meme.findOneAndUpdate(
+                { _id: MemeId},
+                {
+                    $addtoSet: {
+                        commnets: { commentText}
+                    },
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                  }
+            );
+        }
+        throw new AuthenticationError('You need to be logged in!');
+   
     },
-    // login: async (parent, { email, password }) => {
-    //     const user = await User.findOne({ email });
-
-    //     if (!user) {
-    //       throw new AuthenticationError('No user found with this email address');
-    //     }
-
-    //     const correctPw = await user.isCorrectPassword(password);
-
-    //     if (!correctPw) {
-    //       throw new AuthenticationError('Incorrect credentials');
-    //     }
-
-    //     const token = signToken(user);
-
-    //     return { token, user };
-    //   },
-
   },
 };
 module.exports = resolvers;
