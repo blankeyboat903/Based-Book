@@ -12,24 +12,19 @@ const typeDefs = gql`
         _id: ID
         image: String
     }
-
     type Comment {
         _id: ID
-
         name: String
         comment: String
     }
-
     type Query {
        meme: [Meme]!
        comments: [Comment]!
     }
-
     type Mutation {
-        createMeme(image: String!): Meme
-        createComment(name: String!, comment: String!): Comment
-
+        addMeme(image: String!): Meme
+        addComment(name: String!, comment: String!): Comment
     }
 `;
 
-module.export = typeDefs;
+module.exports = typeDefs;
