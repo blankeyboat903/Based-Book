@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -8,18 +9,11 @@ const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
-
-cloudinary.config({ 
-    cloud_name: 'girthycloud', 
-    api_key: '334796294649229', 
-    api_secret: 'NFgAllPCa_bXjoT-pFENmEYsjZ8' 
-});
-
+  typeDefs, resolvers
+})
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 
 mongoose.connect('mongodb')
 
@@ -30,6 +24,7 @@ mongoose.connect('mongodb')
 // app.get('/', (req, res) => {
 //   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 // });
+
 
 
 // Create a new instance of an Apollo server with the GraphQL schema
