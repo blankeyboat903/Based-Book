@@ -1,4 +1,7 @@
+const { AuthenticationError } = require('apollo-server-express');
 const { Meme, Comments, User } = require('../models');
+const { signToken } = require('../utils/auth');
+
 const resolvers = {
     Query: {
         meme: async () => {
