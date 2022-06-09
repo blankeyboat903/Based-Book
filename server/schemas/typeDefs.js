@@ -3,13 +3,13 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type Meme {
         _id: ID
-        image: String!
+        image: String
     }
 
     type Comment {
         _id: ID
-        name: String!
-        comment: String!
+        name: String
+        comment: String
     }
 
     type Query {
