@@ -1,6 +1,13 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+    type User {
+    _id: ID
+    username: String
+    email: String
+    password: String
+    comment: [Comment]!
+  }
     type Meme {
         _id: ID
         Image: String!
@@ -8,19 +15,27 @@ const typeDefs = gql`
 
     type Comment {
         _id: ID
-        comment: String!
+        commentText: String!
+        comments: [Comment]!
     }
 
     type Query {
-       meme: [Meme]!
-       comments: [Comment]!
-       comments(id: ID!): Comments
+        users: [User]
+        user(username: String!): User
+        memes: [Meme]
+        memes:(Image: String!): Meme
+        comments: [Comment]!
+        comments(id: ID!): Comments
     }
 
     type Mutation {
-        createMeme(image: String!): Meme
-        createComment(name: String!, comment: String!): Comments
-        login(email: String!, password: String!)
+        addUser(username: String!, email: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
+        addMeme(image: String!): Meme
+        addComment(name: String!, comment: String!): Comments
+        removeMeme(image: String!): Meme
+        removeComment(name: String!, comment: String!): Comments
+        
     }
 `;
 
