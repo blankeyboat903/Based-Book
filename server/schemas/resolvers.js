@@ -1,4 +1,4 @@
-const { Meme, Comments } = require('../models');
+const { Meme, Comments, User } = require('../models');
 const resolvers = {
     Query: {
         meme: async () => {
