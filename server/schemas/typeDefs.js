@@ -24,6 +24,8 @@ const typeDefs = gql`
     type Mutation {
         addMeme(image: String!): Meme
         addComment(name: String!, comment: String!): Comment
+        addUser(username: String!, email: String!, password: String!): User
+        login(email: String!, password: String!): User
     }
 `;
 
