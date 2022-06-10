@@ -2,7 +2,33 @@ import { gql } from '@apollo/client';
 // just created a foundation to work on with this push
 
 
-export const CREATE_MEME = gql`
+
+export const LOGIN_USER = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_USER = gql`
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+
+export const ADD_MEME = gql`
   mutation createMeme($image: String!) {
     createMeme(Meme: $Meme) {
       _id
@@ -12,11 +38,20 @@ export const CREATE_MEME = gql`
 `;
 
 
-export const CREATE_COMMENT = gql`
-  mutation createComment($name: String!, $comment: String!) {
-    createComment(name: $name, comment: $comment) {
+
+
+export const ADD_COMMENT = gql`
+  mutation addComment($thoughtId: ID!, $commentText: String!) {
+    addComment(thoughtId: $thoughtId, commentText: $commentText) {
       _id
-      comment
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
     }
   }
 `;
