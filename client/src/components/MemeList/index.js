@@ -55,4 +55,4 @@ const ThoughtList = ({
   );
 };
 
-export default ThoughtList;
+export default MemeList;
