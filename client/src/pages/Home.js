@@ -10,7 +10,7 @@ import { QUERY_MEME } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_MEME);
-  const thoughts = data?.thoughts || [];
+  const memes = data?.memes || [];
 
   return (
     <main>
@@ -19,15 +19,14 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <MemeForm />
+
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
             <MemeList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
+
             />
           )}
         </div>
