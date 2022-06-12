@@ -1,4 +1,3 @@
-
 // ********!!! This is the basic template for the Home.js Page... we need to push up the other files so we can fill this data out accordingly!!!!!****
 
 import React from 'react';
