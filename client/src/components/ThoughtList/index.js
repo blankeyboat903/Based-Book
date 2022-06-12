@@ -1,4 +1,3 @@
-
 //***!!!Structure!!!**
 // NEEDS TO BE MEME NOT THOUGHT
 // ***!! *
