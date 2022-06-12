@@ -116,4 +116,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default MemeForm;
