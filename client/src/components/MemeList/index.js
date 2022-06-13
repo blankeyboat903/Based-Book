@@ -5,14 +5,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ThoughtList = ({
+const MemeList = ({
   thoughts,
   title,
   showTitle = true,
   showUsername = true,
 }) => {
   if (!thoughts.length) {
-    return <h3>No Thoughts Yet</h3>;
+    return <h3>No Memes Yet</h3>;
   }
 
   return (
