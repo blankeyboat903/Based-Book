@@ -4,7 +4,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 import Header from '../components/Header';
-import navbar from '../components/NavBar';
+import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import MemeForm from '../components/MemeForm';
 import MemeList from '../components/MemeList';
@@ -16,7 +16,7 @@ import { QUERY_COMMENT } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_MEME);
-  const Memes = data?.Memes || [];
+  const memes = data?.Memes || [];
 
   return (
     <main>

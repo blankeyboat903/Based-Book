@@ -1,5 +1,5 @@
 //***!!!Structure***!! *
-
+import NavBar from '../NavBar';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -21,6 +21,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
+                <NavBar/>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
