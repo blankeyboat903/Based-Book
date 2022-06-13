@@ -5,7 +5,7 @@ export const QUERY_MEME = gql`
   query meme {
     meme {
       _id
-      Image
+      image
     }
   }
 `;

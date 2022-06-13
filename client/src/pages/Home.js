@@ -28,7 +28,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <MemeList
+            <MemeList memes={memes}
 
             />
           )}
