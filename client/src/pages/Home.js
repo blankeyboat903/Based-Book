@@ -3,10 +3,13 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import MemeList from '../components/MemeList';
 import MemeForm from '../components/MemeForm';
+import MemeList from '../components/MemeList';
+import CommentForm from '../components/CommentFist';
+import CommentList from '../components/CommentList';
 
 import { QUERY_MEME } from '../utils/queries';
+import { QUERY_COMMENT } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_MEME);

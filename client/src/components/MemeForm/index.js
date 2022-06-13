@@ -13,19 +13,19 @@ import { QUERY_MEME } from '../../utils/queries';
 
 import Auth from '../../utils/Auth';
 
-const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState('');
+const MemeForm = () => {
+  const [MemeText, setMemeText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_MEME, {
-    update(cache, { data: { addThought } }) {
+  const [addMeme, { error }] = useMutation(ADD_MEME, {
+    update(cache, { data: { addMeme } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_MEME });
+        const { Memes } = cache.readQuery({ query: QUERY_MEME });
 
         cache.writeQuery({
           query: QUERY_MEME,
-          data: { thoughts: [addThought, ...thoughts] },
+          data: { Memes: [addMeme, ...Memes] },
         });
       } catch (e) {
         console.error(e);
@@ -60,15 +60,15 @@ const ThoughtForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
-      setThoughtText(value);
+    if (name === 'MemeText' && value.length <= 280) {
+      setMemeText(value);
       setCharacterCount(value.length);
     }
   };
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Caption goes here.</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -86,7 +86,7 @@ const ThoughtForm = () => {
             <div className="col-12 col-lg-9">
               <textareagit
                 placeholder="Here's a new thought..."
-                value={thoughtText}
+                value={MemeText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -95,7 +95,7 @@ const ThoughtForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add Meme
               </button>
             </div>
             {error && (
@@ -108,7 +108,7 @@ const ThoughtForm = () => {
       ) : (
         <p>
           You need to be logged in to share your thoughts. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          <Link to="/login.js">login</Link> or <Link to="/signup.js">signup.</Link>
         </p>
       )}
     </div>
