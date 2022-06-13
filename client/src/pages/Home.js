@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 
 import MemeForm from '../components/MemeForm';
 import MemeList from '../components/MemeList';
-import CommentForm from '../components/CommentFist';
+import CommentForm from '../components/CommentForm';
 import CommentList from '../components/CommentList';
 
 import { QUERY_MEME } from '../utils/queries';

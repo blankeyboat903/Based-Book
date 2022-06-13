@@ -11,7 +11,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_MEME } from '../../utils/mutations';
 import { QUERY_MEME } from '../../utils/queries';
 
-import Auth from '../../utils/Auth';
+import auth from '../../utils/auth';
 
 const MemeForm = () => {
   const [MemeText, setMemeText] = useState('');
@@ -70,7 +70,7 @@ const MemeForm = () => {
     <div>
       <h3>Caption goes here.</h3>
 
-      {Auth.loggedIn() ? (
+      {auth.loggedIn() ? (
         <>
           <p
             className={`m-0 ${
@@ -90,7 +90,7 @@ const MemeForm = () => {
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
-              ></textarea>
+              ></textareagit>
             </div>
 
             <div className="col-12 col-lg-3">
