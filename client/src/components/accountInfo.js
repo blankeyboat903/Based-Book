@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { isLoggedIn } from "../helpers/authHelper";
+import { isLoggedIn } from "./utils/Auth"
 import UserAvatar from "./UserAvatar";
 import HorizontalStack from "./util/HorizontalStack";
 import Meme from "./Meme";
