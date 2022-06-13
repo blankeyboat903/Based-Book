@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import "./app.css";
 import Login from "./pages/Login";
 import Signup from "./pages/signup";
@@ -40,6 +41,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
