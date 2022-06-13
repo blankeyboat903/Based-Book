@@ -2,8 +2,6 @@
 // NEEDS TO BE MEME NOT THOUGHT
 // ***!! *
 
-
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {Image} from 'cloudinary-react'
@@ -12,7 +10,7 @@ import Axios from 'axios'
 import { ADD_MEME } from '../../utils/mutations';
 import { QUERY_MEME } from '../../utils/queries';
 
-import auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
 function memeupload() {
 
