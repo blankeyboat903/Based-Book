@@ -84,7 +84,8 @@ const ThoughtForm = () => {
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
-              <textareagit
+              <textarea
+                name="thoughtText"
                 placeholder="Here's a new thought..."
                 value={thoughtText}
                 className="form-input w-100"
@@ -115,4 +116,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default MemeForm;
+export default ThoughtForm;
