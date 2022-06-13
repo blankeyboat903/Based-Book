@@ -74,7 +74,6 @@
 
 
 ### Built With
-* [Bootstrap](https://getbootstrap.com)
 * [Mongodb](https://www.mongodb.com/)
 * [React](https://reactjs.org/)
 * [Node](https://nodejs.org/en/)
