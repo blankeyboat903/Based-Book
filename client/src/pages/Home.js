@@ -4,6 +4,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 import Header from '../components/Header';
+import navbar from '../components/NavBar';
 import Footer from '../components/Footer';
 import MemeForm from '../components/MemeForm';
 import MemeList from '../components/MemeList';
