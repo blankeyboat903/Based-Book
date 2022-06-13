@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from 'cloudinary-react';
 
 const MemeList = ({
   Memes,
@@ -21,28 +22,10 @@ const MemeList = ({
       {Memes &&
         Memes.map((Memes) => (
           <div key={Memes._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              {showUsername ? (
-                <Link
-                  className="text-light"
-                  to={`/profiles/${Memes.MemeAuthor}`}
-                >
-                  {Memes.MemeAuthor} <br />
-                  <span style={{ fontSize: '1rem' }}>
-                   Meme date:{Memes.createdAt}
-                  </span>
-                </Link>
-              ) : (
-                <>
-                  <span style={{ fontSize: '1rem' }}>
-                    Meme Date: {Memes.createdAt}
-                  </span>
-                </>
-              )}
-            </h4>
-            <div className="card-body bg-light p-2">
-              <p>{Memes.MemeText}</p>
-            </div>
+                <image
+                style={{ width: 400 }}
+                cloudName="girthycloud" publicId="https://res.cloudinary.com/girthycloud/image/upload/v1654628121/cld-sample-5.jpg"
+                />
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/thoughts/${Memes._id}`}
