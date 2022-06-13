@@ -13,7 +13,7 @@ import { QUERY_COMMENT } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_MEME);
-  const memes = data?.memes || [];
+  const Memes = data?.Memes || [];
 
   return (
     <main>
