@@ -41,11 +41,11 @@ export const ADD_MEME = gql`
 
 
 export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation addComment($MemeId: ID!, $commentText: String!) {
+    addComment(MemeId: $MemeId, commentText: $commentText) {
       _id
-      thoughtText
-      thoughtAuthor
+      MemeText
+      MemeAuthor
       createdAt
       comments {
         _id
