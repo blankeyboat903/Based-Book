@@ -3,6 +3,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import MemeForm from '../components/MemeForm';
 import MemeList from '../components/MemeList';
 import CommentForm from '../components/CommentForm';
