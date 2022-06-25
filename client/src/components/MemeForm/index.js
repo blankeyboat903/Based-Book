@@ -2,9 +2,7 @@
 // NEEDS TO BE MEME NOT THOUGHT
 // ***!! *
 
-
-
-import React, { useState } from 'react';
+import React, { UseState } from 'react';
 import { Link } from 'react-router-dom';
 import {Image} from 'cloudinary-react'
 import { useMutation } from '@apollo/client';
@@ -12,11 +10,11 @@ import Axios from 'axios'
 import { ADD_MEME } from '../../utils/mutations';
 import { QUERY_MEME } from '../../utils/queries';
 
-import auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
-function memeupload() {
+function MemeUpload() {
 
-  const [imageSelected, setImageSelected] = useState("")
+  const [imageSelected, setImageSelected] = UseState("")
 
   const uploadImage = () => {
     const formData = new FormData()
@@ -144,4 +142,4 @@ function memeupload() {
 //   );
 // };
 
-export default MemeForm;
+export default MemeUpload;
